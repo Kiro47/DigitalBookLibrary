@@ -2,13 +2,36 @@ group 'net.ddns.kiro47.digtalbooklibrary'
 version '0.1-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: "war"
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile("org.springframework:spring-context:5.0.0.RELEASE")
+    compile("org.springframework:spring-webmvc:5.0.0.RELEASE")
+
+    compile("javax.inject:javax.inject:1")
+    compile("javax.servlet:servlet-api:2.5")
+    compile("javax.servlet:jstl:2.5")
+    compile("javax.servlet.jsp:jsp-api:1.2")
+
+
+    providedRuntime("javax.servlet:jstl:2.5")
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+war {
+    baseName = 'Digital Book Library'
+    version = '0.01-BUILD_SNAPSHOT'
+}
+
+jar {
+    baseName = 'Digital_Book_library'
+    version = '0.01'
 }
